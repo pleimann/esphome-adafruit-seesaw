@@ -2,7 +2,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/light/addressable_light.h"
-#include "../seesaw.h"
+#include "esphome/components/seesaw/seesaw.h"
 
 namespace esphome {
 namespace seesaw {

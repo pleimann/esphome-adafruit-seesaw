@@ -3,7 +3,7 @@ from esphome.components import light
 import esphome.config_validation as cv
 from esphome.const import CONF_NUM_LEDS, CONF_OUTPUT_ID, CONF_PIN
 
-from .. import CONF_SEESAW_ID, SeesawComponent, seesaw_ns
+from esphome.components.seesaw import CONF_SEESAW_ID, SeesawComponent, seesaw_ns
 
 DEPENDENCIES = ["seesaw"]
 

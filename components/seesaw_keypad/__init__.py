@@ -3,7 +3,7 @@ from esphome import automation
 import esphome.config_validation as cv
 from esphome.const import CONF_ID, CONF_TRIGGER_ID
 
-from .. import CONF_SEESAW_ID, SeesawComponent, seesaw_ns
+from esphome.components.seesaw import CONF_SEESAW_ID, SeesawComponent, seesaw_ns
 
 DEPENDENCIES = ["seesaw"]
 
