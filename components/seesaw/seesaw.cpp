@@ -10,13 +10,22 @@ static const char *const TAG = "seesaw";
 void SeesawComponent::setup() {
   ESP_LOGCONFIG(TAG, "Setting up Seesaw...");
 
-  // Software reset
+  // Software reset - device needs time to boot
   this->software_reset();
-  delay(10);
+  delay(500);  // Seesaw needs 500ms after reset
 
-  // Read hardware ID
-  uint8_t hw_id;
-  if (!this->read_register(SEESAW_STATUS, SEESAW_STATUS_HW_ID, &hw_id, 1)) {
+  // Read hardware ID with retry
+  uint8_t hw_id = 0;
+  bool success = false;
+  for (int retry = 0; retry < 5; retry++) {
+    if (this->read_register(SEESAW_STATUS, SEESAW_STATUS_HW_ID, &hw_id, 1)) {
+      success = true;
+      break;
+    }
+    ESP_LOGW(TAG, "Retry %d reading hardware ID...", retry + 1);
+    delay(100);
+  }
+  if (!success) {
     ESP_LOGE(TAG, "Failed to read hardware ID");
     this->mark_failed();
     return;
