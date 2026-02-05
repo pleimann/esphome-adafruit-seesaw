@@ -33,7 +33,8 @@ void SeesawComponent::setup() {
   this->hardware_id_ = hw_id;
 
   // Validate hardware ID
-  if (hw_id != SEESAW_HW_ID_ATTINY816 && hw_id != SEESAW_HW_ID_ATTINY817 && hw_id != SEESAW_HW_ID_ATTINY1616) {
+  if (hw_id != SEESAW_HW_ID_ATTINY816 && hw_id != SEESAW_HW_ID_ATTINY817 &&
+      hw_id != SEESAW_HW_ID_ATTINY1617 && hw_id != SEESAW_HW_ID_ATTINY1616) {
     ESP_LOGE(TAG, "Unknown hardware ID: 0x%02X", hw_id);
     this->mark_failed();
     return;
@@ -63,6 +64,9 @@ void SeesawComponent::dump_config() {
       break;
     case SEESAW_HW_ID_ATTINY817:
       hw_name = "ATtiny817";
+      break;
+    case SEESAW_HW_ID_ATTINY1617:
+      hw_name = "ATtiny1617";
       break;
     case SEESAW_HW_ID_ATTINY1616:
       hw_name = "ATtiny1616";

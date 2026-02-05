@@ -37,6 +37,7 @@ enum SeesawGPIOReg : uint8_t {
 enum SeesawHardwareID : uint8_t {
   SEESAW_HW_ID_ATTINY816 = 0x84,
   SEESAW_HW_ID_ATTINY817 = 0x85,
+  SEESAW_HW_ID_ATTINY1617 = 0x87,
   SEESAW_HW_ID_ATTINY1616 = 0x88,
 };
 
